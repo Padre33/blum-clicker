@@ -1,5 +1,6 @@
 import logging
 import configparser
+import time
 
 from playwright.sync_api import Playwright, sync_playwright, expect
 
@@ -32,7 +33,9 @@ class HereApp:
             page.set_default_timeout(120_000)
             page.goto(self.__url)
             try:
+                time.sleep(10)
                 page.get_by_role("button", name="Launch Blum ").click()
+                time.sleep(10)
                 page.get_by_role("button", name="Confirm").click()
                 page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Claim").click()
                 page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Start farming").click()
