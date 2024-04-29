@@ -33,11 +33,13 @@ class HereApp:
             page.set_default_timeout(120_000)
             page.goto(self.__url)
             try:
-                time.sleep(10)
+                time.sleep(30)
                 page.get_by_role("button", name="Launch Blum ").click()
-                time.sleep(10)
+                time.sleep(30)
                 page.get_by_role("button", name="Confirm").click()
+                time.sleep(15)
                 page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Claim").click()
+                time.sleep(15)
                 page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Start farming").click()
             except Exception as e:
                 print(e)
