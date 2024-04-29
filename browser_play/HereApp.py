@@ -29,7 +29,7 @@ class HereApp:
             )
 
             page = browser.new_page()
-            page.set_default_timeout(60_000)
+            page.set_default_timeout(120_000)
             page.goto(self.__url)
             try:
                 page.get_by_role("button", name="Launch Blum ").click()
