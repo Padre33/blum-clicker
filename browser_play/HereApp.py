@@ -34,6 +34,7 @@ class HereApp:
             try:
                 page.get_by_role("button", name="Launch Blum ").click()
                 page.get_by_role("button", name="Confirm").click()
+                page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Claim").click()
                 page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Start farming").click()
             except Exception as e:
                 print(e)
