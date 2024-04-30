@@ -1,6 +1,7 @@
 import logging
 import configparser
 import time
+import pyautogui
 
 from playwright.sync_api import Playwright, sync_playwright, expect
 
@@ -34,7 +35,7 @@ class HereApp:
             page.goto(self.__url)
             try:
                 time.sleep(30)
-                page.get_by_role("button", name="Launch Blum ").click()
+                page.get_by_role("button", name="Launch Blum ").nth(0).click()
                 time.sleep(30)
                 page.get_by_role("button", name="Confirm").click()
                 time.sleep(15)
