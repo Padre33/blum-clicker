@@ -31,13 +31,16 @@ class HereApp:
             )
 
             page = browser.new_page()
-            page.set_default_timeout(120_000)
+            page.set_default_timeout(60_000)
             page.goto(self.__url)
             try:
-                time.sleep(30)
+                time.sleep(15)
                 page.get_by_role("button", name="Launch Blum ").nth(0).click()
-                time.sleep(30)
-                page.get_by_role("button", name="Confirm").click()
+                time.sleep(15)
+                try:
+                    page.get_by_role("button", name="Confirm").click()
+                except:
+                    pass
                 time.sleep(15)
                 page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Claim").click()
                 time.sleep(15)
