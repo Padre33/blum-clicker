@@ -25,7 +25,7 @@ class HereApp:
             args = [f"--profile-directory={self.__profile}"]
             browser = playwright.chromium.launch_persistent_context(
                 user_data_dir=f'C:\\Users\\Geometry\\AppData\\Local\\Google\\Chrome\\User Data\\',
-                headless=False,
+                headless=True,
                 channel='chrome',
                 args=args
             )
@@ -44,6 +44,7 @@ class HereApp:
                 time.sleep(15)
                 page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Claim").click()
                 time.sleep(15)
+                page.screenshot(path=f"screenshot{self.__index}.png")
                 page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Start farming").click()
                 time.sleep(15)
                 page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Frens").click()
