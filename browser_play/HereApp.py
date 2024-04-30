@@ -39,7 +39,7 @@ class HereApp:
                 time.sleep(15)
                 try:
                     page.get_by_role("button", name="Confirm").click()
-                except:
+                except Exception as e:
                     pass
                 time.sleep(15)
                 page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Claim").click()
