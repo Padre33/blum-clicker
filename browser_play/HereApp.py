@@ -45,6 +45,7 @@ class HereApp:
                 page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Claim").click()
                 time.sleep(15)
                 page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Start farming").click()
+                time.sleep(15)
             except Exception as e:
                 print(e)
             page.close()
