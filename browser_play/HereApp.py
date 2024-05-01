@@ -25,7 +25,7 @@ class HereApp:
             args = [f"--profile-directory={self.__profile}"]
             browser = playwright.chromium.launch_persistent_context(
                 user_data_dir=f'C:\\Users\\Geometry\\AppData\\Local\\Google\\Chrome\\User Data\\',
-                headless=True,
+                headless=False,
                 channel='chrome',
                 args=args
             )
