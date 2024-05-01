@@ -47,6 +47,10 @@ class HereApp:
                 page.screenshot(path=f"screenshot{self.__index}.png")
                 page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Start farming").click()
                 time.sleep(15)
+                page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("link", name="Frens").click()
+                time.sleep(10)
+                page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Claim").click()
+                time.sleep(5)
                 page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Frens").click()
             except Exception as e:
                 print(e)
