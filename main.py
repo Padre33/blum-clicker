@@ -39,7 +39,7 @@ if __name__ == '__main__':
                 account.run()
             except Exception as e:
                 logging.error(f'Account {acc_info["account"]} has error: ', e)
-                print(f'Account {acc_info["account"]} has error: \n', e, '\n____________')
+                print(f'Account {acc_info["account"]} has error: \n', '\n____________')
 
         print("Claiming enden at: ", datetime.datetime.now(pytz.timezone('Asia/Almaty')))
         print(datetime.datetime.now(pytz.timezone('Asia/Almaty'))-start_time)
