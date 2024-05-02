@@ -32,12 +32,12 @@ class HereApp:
 
             page = browser.new_page()
             page.set_default_timeout(60_000)
-            input("Press Enter to go next")
+            # input("Press Enter to go next")
             page.goto(self.__url)
             try:
                 time.sleep(15)
                 page.get_by_role("button", name="Launch Blum ").nth(0).click()
-                time.sleep(15)
+                time.sleep(60)
                 try:
                     page.get_by_role("button", name="Confirm").click()
                 except Exception as e:
@@ -48,8 +48,14 @@ class HereApp:
                 except Exception as e:
                     print("No Claim button")
                 time.sleep(10)
+
                 page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Start farming").click()
                 time.sleep(10)
+                try:
+                    page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button",
+                                                                                     name="Start farming").click()
+                except Exception as e:
+                    pass
 
                 page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("link", name="Frens").click()
                 time.sleep(5)

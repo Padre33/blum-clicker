@@ -43,4 +43,4 @@ if __name__ == '__main__':
 
         print("Claiming enden at: ", datetime.datetime.now(pytz.timezone('Asia/Almaty')))
         print(datetime.datetime.now(pytz.timezone('Asia/Almaty'))-start_time)
-        time.sleep((8*60*60)-(datetime.datetime.now(pytz.timezone('Asia/Almaty'))-start_time).seconds)
+        time.sleep((8*60*60))
