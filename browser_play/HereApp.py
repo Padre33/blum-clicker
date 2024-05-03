@@ -31,18 +31,18 @@ class HereApp:
             )
 
             page = browser.new_page()
-            page.set_default_timeout(60_000)
+            page.set_default_timeout(120_000)
             # input("Press Enter to go next")
             page.goto(self.__url)
             try:
                 time.sleep(15)
                 page.get_by_role("button", name="Launch Blum ").nth(0).click()
-                time.sleep(60)
+                time.sleep(10)
                 try:
                     page.get_by_role("button", name="Confirm").click()
                 except Exception as e:
                     pass
-                time.sleep(15)
+                time.sleep(60)
                 try:
                     page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Claim").click()
                 except Exception as e:
