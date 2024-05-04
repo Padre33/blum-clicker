@@ -36,7 +36,9 @@ class HereApp:
             page.goto(self.__url)
             try:
                 time.sleep(15)
-                page.get_by_role("button", name=" Launch Blum").last.click()
+                # page.get_by_role("button", name=" Launch Blum").last.click()
+                # page.get_by_role("span", name="Launch Blum").last.click()
+                page.get_by_text("Launch Blum").click()
                 # page.get_by_role("button", name="Launch Blum ").nth(0).click()
                 time.sleep(10)
                 try:
