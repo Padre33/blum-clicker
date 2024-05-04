@@ -42,7 +42,7 @@ class HereApp:
                 # page.get_by_role("button", name="Launch Blum ").nth(0).click()
                 time.sleep(10)
                 try:
-                    page.get_by_role("button", name="Confirm").click()
+                    page.get_by_role("button", name="Confirm").last.click()
                 except Exception as e:
                     pass
                 time.sleep(60)
