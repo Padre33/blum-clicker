@@ -62,10 +62,10 @@ class HereApp:
                     pass
 
                 try:
-                    if page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Farming").is_disabled():
+                    if page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_text("Farming").is_disabled():
                         print("Claimed")
-                except:
-                    pass
+                except Exception as e:
+                    print("Not claimed")
 
                 page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("link", name="Frens").click()
                 # time.sleep(5)
