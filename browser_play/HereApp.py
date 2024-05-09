@@ -33,6 +33,7 @@ class HereApp:
             page = browser.new_page()
 
             page.set_default_timeout(120_000)
+            page.set_default_navigation_timeout(120_000)
             # input("Press Enter to go next")
             page.goto(self.__url)
             try:
@@ -59,7 +60,7 @@ class HereApp:
                     page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button",
                                                                                      name="Start farming").click()
                 except Exception as e:
-                    pass
+                    print("Not started")
 
                 try:
                     if page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_text("Farming").is_disabled():
@@ -74,7 +75,11 @@ class HereApp:
                 except Exception as e:
                     pass
                 # time.sleep(5)
-                page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Frens").click()
+                page.set_default_timeout(15_000)
+                try:
+                    page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Frens").click()
+                except Exception as e:
+                    pass
             except Exception as e:
                 print(e)
             page.close()
