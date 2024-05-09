@@ -1,7 +1,6 @@
 import logging
 import configparser
-import time
-import pyautogui
+
 
 from playwright.sync_api import Playwright, sync_playwright, expect
 
