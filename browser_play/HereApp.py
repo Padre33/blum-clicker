@@ -53,12 +53,9 @@ class HereApp:
                     print("No Claim button")
 
                 username = page.frame_locator("iframe[title=\"Blum Web App\"]").locator("div.username").all_text_contents()
-                print(username)
-
                 balance = page.frame_locator("iframe[title=\"Blum Web App\"]").locator("div.balance").all_text_contents()
-                print(balance)
 
-                self.play_game(page)
+                logging.info(f"{self.__index} {username[0]} {balance[0]}")
 
                 page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Start farming").click()
                 try:
@@ -95,13 +92,5 @@ class HereApp:
             page.close()
             browser.close()
             logging.info("Ended " + self.__account + f" ID: {self.__index}")
-
-    def play_game(self, page: Page):
-        page.frame_locator("iframe[title=\"Blum Web App\"]").locator("a.play-btn").click()
-        count = 0
-        while count < 20:
-            x, y = pyautogui.locateCenterOnScreen("image.jpg", confidence=0.8)
-            pyautogui.click(x, y)
-            count += 1
 
 
