@@ -50,6 +50,10 @@ class HereApp:
                 try:
                     page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Claim").click()
                 except Exception as e:
+                    try:
+                        page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Claim").click()
+                    except:
+                        pass
                     print("No Claim button")
 
                 username = page.frame_locator("iframe[title=\"Blum Web App\"]").locator("div.username").all_text_contents()
