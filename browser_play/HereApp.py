@@ -1,8 +1,8 @@
 import logging
 import configparser
+import pyautogui
 
-
-from playwright.sync_api import Playwright, sync_playwright, expect
+from playwright.sync_api import Playwright, sync_playwright, expect, Page
 
 
 class HereApp:
@@ -52,12 +52,25 @@ class HereApp:
                 except Exception as e:
                     print("No Claim button")
 
+                username = page.frame_locator("iframe[title=\"Blum Web App\"]").locator("div.username").all_text_contents()
+                print(username)
+
+                balance = page.frame_locator("iframe[title=\"Blum Web App\"]").locator("div.balance").all_text_contents()
+                print(balance)
+
+                self.play_game(page)
+
                 page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button", name="Start farming").click()
                 try:
                     page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button",
                                                                                      name="Start farming").click()
                 except Exception as e:
                     print("Not started")
+                    try:
+                        page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_role("button",
+                                                                                     name="Start farming").click()
+                    except:
+                        pass
 
                 try:
                     if page.frame_locator("iframe[title=\"Blum Web App\"]").get_by_text("Farming").is_disabled():
@@ -82,4 +95,13 @@ class HereApp:
             page.close()
             browser.close()
             logging.info("Ended " + self.__account + f" ID: {self.__index}")
+
+    def play_game(self, page: Page):
+        page.frame_locator("iframe[title=\"Blum Web App\"]").locator("a.play-btn").click()
+        count = 0
+        while count < 20:
+            x, y = pyautogui.locateCenterOnScreen("image.jpg", confidence=0.8)
+            pyautogui.click(x, y)
+            count += 1
+
 
