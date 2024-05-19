@@ -33,8 +33,8 @@ class HereApp:
 
             page.set_default_timeout(90_000)
             page.set_default_navigation_timeout(120_000)
-            print(self.__profile)
-            input("Press Enter to go next")
+            # print(self.__profile)
+            # input("Press Enter to go next")
             page.goto(self.__url)
             try:
                 # time.sleep(15)
